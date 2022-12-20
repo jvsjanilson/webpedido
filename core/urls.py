@@ -1,6 +1,20 @@
 from django.urls import path
+from rest_framework.routers import SimpleRouter
 
-from core.views import EstadosAPIView, CidadesAPIView, EstadoAPIView, CidadeAPIView
+
+
+from core.views import (
+    EstadosAPIView, 
+    CidadesAPIView, 
+    EstadoAPIView, 
+    CidadeAPIView,
+    EstadoViewSet,
+    CidadeViewSet)
+
+router = SimpleRouter()
+router.register('estados', EstadoViewSet)
+router.register('cidades', CidadeViewSet)
+
 
 urlpatterns = [
     path('estados/', EstadosAPIView.as_view(), name='estados'),

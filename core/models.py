@@ -10,7 +10,7 @@ class Estado(models.Model):
 
 class Cidade(models.Model):
     nome = models.CharField(max_length=60)
-    estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
+    estado = models.ForeignKey(Estado, related_name='cidades', on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.nome
